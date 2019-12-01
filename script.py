@@ -10,29 +10,29 @@ Created on Fri Nov 29 17:40:01 2019
 4. repeat 500 times
 """
 
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
+print(str(sys.argv))
+
+p = float(sys.argv[1])
+n = int(sys.argv[2])
 avg = []
-sample = [0,0,0,0,0,1,1,1,1,1]
 
-for i in range(500):
-    #list = []
-    total = 0
-    '''for j in range(1,30):
-        list.append(np.random.choice(np.arange(2,1), p=[0.2,0.8]))
-        total += list[j-1]'''
-    list = np.random.choice(2,30, p=[.3,.7])
-    avg.append(sum(list)/3)
+for i in range(n):
+    list = np.random.choice(2,30, p=[(1-p),p])
+    avg.append(sum(list)/3.0)
     #print(list)
 print(avg)
 
 #sns.kdeplot(avg)
-#sns.distplot(avg)
+sns.distplot(avg)
 
 
-data = np.random.randint(0,21,size=30)
-print(data)
+#data = np.random.randint(0,21,size=30)
+#print(data)
 #bins=np.linspace(0,1,num=20)
 bins=np.arange(12)
 #[0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1.]
@@ -43,7 +43,7 @@ plt.figure(figsize=(10,30))
 hist, edges = np.histogram(avg,bins=bins,range=(0,10))
 
 y = np.arange(1,hist.max()+1)
-x = np.arange(11)/10
+x = np.arange(11)/10.0
 X,Y = np.meshgrid(x,y)
 print(X)
 
@@ -52,3 +52,5 @@ p = plt.scatter(X,Y, c=Y<=hist, cmap="Greys")
 p.figure.savefig("graph")
 
 plt.show()
+
+sys.exit()
