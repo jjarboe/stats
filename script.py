@@ -16,35 +16,39 @@ import matplotlib.pyplot as plt
 avg = []
 sample = [0,0,0,0,0,1,1,1,1,1]
 
-for i in range(5):
+for i in range(500):
     #list = []
     total = 0
     '''for j in range(1,30):
         list.append(np.random.choice(np.arange(2,1), p=[0.2,0.8]))
         total += list[j-1]'''
-    list = np.random.choice(2,30, p=[.2,.8])
-    avg.append(sum(list)/30)
-    print(list)
+    list = np.random.choice(2,30, p=[.3,.7])
+    avg.append(sum(list)/3)
+    #print(list)
 print(avg)
 
-'''#sns.kdeplot(avg)
+#sns.kdeplot(avg)
 #sns.distplot(avg)
 
 
-data = np.random.choice(np.arange(1, 7), p=[0.1, 0.05, 0.05, 0.2, 0.4, 0.2])
-bins = np.arange(13)-0.5
+data = np.random.randint(0,21,size=30)
+print(data)
+#bins=np.linspace(0,1,num=20)
+bins=np.arange(12)
+#[0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1.]
+print(bins)
 
 plt.figure(figsize=(10,30))
 
-hist, edges = np.histogram(avg, bins=bins)
+hist, edges = np.histogram(avg,bins=bins,range=(0,10))
 
 y = np.arange(1,hist.max()+1)
-x = np.arange(12)
+x = np.arange(11)/10
 X,Y = np.meshgrid(x,y)
+print(X)
 
 p = plt.scatter(X,Y, c=Y<=hist, cmap="Greys")
 
 p.figure.savefig("graph")
 
 plt.show()
-'''
