@@ -14,43 +14,49 @@ import sys
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 
-print(str(sys.argv))
 
+'''Deal with command line arguments'''
 p = float(sys.argv[1])
 n = int(sys.argv[2])
-avg = []
 
+if(len(sys.argv)==4):
+    np.random.seed(sys.argv[3])
+
+
+'''Take the random sample'''
+avg = []
 for i in range(n):
     list = np.random.choice(2,30, p=[(1-p),p])
     avg.append(sum(list)/3.0)
-    #print(list)
-print(avg)
 
+
+'''histogram'''
 #sns.kdeplot(avg)
-sns.distplot(avg)
+fig = plt.figure()
+ax = sns.distplot(pd.Series(avg,name="Percent who Said 'Yes'"))
+ax.figure.savefig("histogram")
 
 
-#data = np.random.randint(0,21,size=30)
-#print(data)
-#bins=np.linspace(0,1,num=20)
-bins=np.arange(12)
-#[0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1.]
-print(bins)
+'''dotplot :('''
+#number of bins, scaling and labels
+bins = np.arange(12)
+fig = plt.figure(figsize=(10,20))
+fig.suptitle('Distribution of Averages', fontsize=20)
+plt.xlabel('Percentage', fontsize=18)
+plt.ylabel('Frequency', fontsize=16)
 
-plt.figure(figsize=(10,30))
-
+#make the graph
 hist, edges = np.histogram(avg,bins=bins,range=(0,10))
 
+#make y=frequency and x a percentage
 y = np.arange(1,hist.max()+1)
 x = np.arange(11)/10.0
 X,Y = np.meshgrid(x,y)
-print(X)
 
-p = plt.scatter(X,Y, c=Y<=hist, cmap="Greys")
+#plot the points
+p = plt.scatter(X,Y, c=Y<=hist, cmap="Greys",s=1)
 
-p.figure.savefig("graph")
-
-plt.show()
-
-sys.exit()
+#save the figure to dot.png
+p.figure.savefig("dot")
