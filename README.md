@@ -15,6 +15,7 @@
 	- stopping / looping
 	- recording
 	- repeats
+
 ### Implementation
 
 - Values used
