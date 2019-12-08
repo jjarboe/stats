@@ -64,7 +64,9 @@ permalink: /simulation/
 
     var maincontainer = document.getElementById("right")
     for(var key in data){
-    alert(key + " = " + data[key]);
+      var tr = document.createElement("tr");
+      tr.innerHTML = key + " = " + data[key];
+      maincontainer.appendChild(tr);
     }
   }
   )
