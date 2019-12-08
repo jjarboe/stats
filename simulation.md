@@ -30,7 +30,7 @@ permalink: /simulation/
 </tbody>
 </table>
 
-<input type="submit" OnClick="return SubmitForm()" value="Draw Sample" >
+<input type="submit" OnSubmit="return SubmitForm()" value="Draw Sample" >
 
 </form>
 
