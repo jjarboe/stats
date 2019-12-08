@@ -9,19 +9,19 @@ permalink: /simulation/
 <tbody>
   <tr>
     <td nowrap="nowrap">p</td>
-    <td><input value="" name="p"></td>
+    <td><input value="" id="mean" name="p"></td>
   </tr>
   <tr>
     <td nowrap="nowrap">n</td>
-    <td><input value="" name="n"></td>
+    <td><input value="" id="number of trials" name="n"></td>
   </tr>
   <tr>
     <td nowrap="nowrap">b</td>
-    <td><input value="" name="b"></td>
+    <td><input value="" id="size of bins" name="b"></td>
   </tr>
   <tr>
     <td nowrap="nowrap">t</td>
-    <td><input value="" name="t"></td>
+    <td><input value="" id="size of trials" name="t"></td>
   </tr>
   <tr>
     <td nowrap="nowrap">s</td>
@@ -30,12 +30,18 @@ permalink: /simulation/
 </tbody>
 </table>
 
-<input type="submit" value="Draw Sample" >
+<input type="submit" value="Start Simulation" >
 
 </form>
 
 <script>
-  document.getElementById("form").onsubmit=SubmitForm;
+  var f = document.getElementById("form");
+  f.onsubmit=SubmitForm;
   function SubmitForm(event){
-  alert ("HOWDY"); event.preventDefault();}
+  var url = f.action + '?' + new FormData(f);
+  alert(url);
+  fetch(url, {method:"GET"})
+    .then(response => alert(response.json()));
+  
+  event.preventDefault();}
 </script>
