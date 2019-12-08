@@ -4,7 +4,8 @@ permalink: /simulation/
 
 
 <form id="form" action="http://localhost:8000/graphs/" method="get">
-
+<input type="hidden" name="present" value="1">
+  
 <table border="0">
 <tbody>
   <tr>
@@ -38,9 +39,8 @@ permalink: /simulation/
   var f = document.getElementById("form");
   f.onsubmit=SubmitForm;
   function SubmitForm(event){
-  var url = f.action + '?' + new FormData(f);
-  alert(url);
-  fetch(url, {method:"GET"})
+  var url = f.action;
+  fetch(url, {method:"POST", body: new FormData(f)})
     .then(response => alert(response.json()));
   
   event.preventDefault();}
