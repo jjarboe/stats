@@ -59,16 +59,18 @@ permalink: /simulation/
     })
     .then(response => response.json())
   )
-  .then(data => data)
+  .then(data => {
+    alert(data);
+    event.preventDefault();
+
+    var maincontainer = document.getElementById("right")
+    for(var key in data){
+    alert(key + " = " + data[key]);
+    }
+  }
+  )
   .catch(error => alert("ERROR", error));
   
-  data = data.then(data => data);
-  alert(data);
-  event.preventDefault();
   
-  var maincontainer = document.getElementById("right")
-  for(var key in data){
-  alert(key + " = " + data[key]);
-  }
   }
 </script>
