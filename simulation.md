@@ -1,6 +1,19 @@
+<---
 layout: page
 title: "Simulation"
 permalink: /simulation/
+--->
+
+<table>
+  <tbody>
+    <td>
+      
+    </td>
+    <td id="right">
+    
+    </td>
+  </tbody>
+</table>
 
 
 <form id="form" action="http://localhost:8000/graphs/" method="get">
@@ -51,4 +64,9 @@ permalink: /simulation/
   
   alert(data);
   event.preventDefault();}
+  
+  var maincontainer = document.getElementById("right")
+  for(var key in data){
+  alert(key + " = " + data[key]);
+  }
 </script>
