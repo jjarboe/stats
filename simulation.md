@@ -61,7 +61,6 @@ permalink: /simulation/
   )
   .then(data => {
     alert(data);
-    event.preventDefault();
 
     var maincontainer = document.getElementById("right")
     for(var key in data){
@@ -72,5 +71,6 @@ permalink: /simulation/
   .catch(error => alert("ERROR", error));
   
   
+  event.preventDefault();
   }
 </script>
