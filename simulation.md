@@ -30,11 +30,11 @@ permalink: /simulation/
 </tbody>
 </table>
 
-<input type="submit" OnSubmit="return SubmitForm()" value="Draw Sample" >
+<input type="submit" OnSubmit="SubmitForm" value="Draw Sample" >
 
 </form>
 
 <script>
-  function SubmitForm(){
-  alert ("HOWDY"); return 0;}
+  function SubmitForm(event){
+  alert ("HOWDY"); event.preventDefault();}
 </script>
