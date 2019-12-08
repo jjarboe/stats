@@ -62,6 +62,7 @@ permalink: /simulation/
   .then(data => data)
   .catch(error => alert("ERROR", error));
   
+  data = data.then(data => data);
   alert(data);
   event.preventDefault();
   
