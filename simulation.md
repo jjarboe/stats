@@ -3,7 +3,7 @@ title: "Simulation"
 permalink: /simulation/
 
 
-<form action="http://localhost:8000/graphs/" method="get">
+<form id="form" action="http://localhost:8000/graphs/" method="get">
 
 <table border="0">
 <tbody>
@@ -30,11 +30,12 @@ permalink: /simulation/
 </tbody>
 </table>
 
-<input type="submit" OnSubmit="SubmitForm" value="Draw Sample" >
+<input type="submit" value="Draw Sample" >
 
 </form>
 
 <script>
+  document.getElementById("form").onsubmit=SubmitForm;
   function SubmitForm(event){
   alert ("HOWDY"); event.preventDefault();}
 </script>
