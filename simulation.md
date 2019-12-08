@@ -63,10 +63,11 @@ permalink: /simulation/
   .catch(error => alert("ERROR", error));
   
   alert(data);
-  event.preventDefault();}
+  event.preventDefault();
   
   var maincontainer = document.getElementById("right")
   for(var key in data){
   alert(key + " = " + data[key]);
+  }
   }
 </script>
