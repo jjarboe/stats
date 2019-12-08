@@ -40,14 +40,15 @@ permalink: /simulation/
   f.onsubmit=SubmitForm;
   function SubmitForm(event){
   var url = f.action;
-  (fetch(url, {
+  var data = (fetch(url, {
           method:"POST", 
           body: new FormData(f)
     })
     .then(response => response.json())
   )
-  .then(data => alert(data))
+  .then(data => data)
   .catch(error => alert("ERROR", error));
   
+  alert(data);
   event.preventDefault();}
 </script>
