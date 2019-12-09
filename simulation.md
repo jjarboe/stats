@@ -14,23 +14,23 @@ permalink: /simulation/
       <tbody>
         <tr>
           <td nowrap="nowrap">p</td>
-          <td><input value="" id="mean" name="p"></td>
+          <td><input value="" id="p" name="mean"></td>
         </tr>
         <tr>
           <td nowrap="nowrap">n</td>
-          <td><input value="" id="number of trials" name="n"></td>
+          <td><input value="" name="number of trials" id="n"></td>
         </tr>
         <tr>
           <td nowrap="nowrap">b</td>
-          <td><input value="" id="size of bins" name="b"></td>
+          <td><input value="" name="size of bins" id="b"></td>
         </tr>
         <tr>
           <td nowrap="nowrap">t</td>
-          <td><input value="" id="size of trials" name="t"></td>
+          <td><input value="" name="size of trials" id="t"></td>
         </tr>
         <tr>
           <td nowrap="nowrap">s</td>
-          <td><input value="" name="s"></td>
+          <td><input value="" name="seed" id="s"></td>
         </tr>
       </tbody>
       </table>
@@ -47,6 +47,15 @@ permalink: /simulation/
 
 
 <script>
+  
+  var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var height = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+  
   var f = document.getElementById("form");
   f.onsubmit=SubmitForm;
   function SubmitForm(event){
@@ -62,12 +71,12 @@ permalink: /simulation/
     var maincontainer = document.getElementById("right")
     for(var key in data){
       var tr = document.createElement("tr");
-      tr.setAttribute('style', 'width: 500px; word-break: break-all;')
+      tr.setAttribute('style', 'width: ' + (width-(width/6))/2 + 'px; word-break: break-all;')
       
       if (key.includes("dataurl")) {
-      tr.innerHTML = '<img style="height: auto" src="' + data[key] + '" alt="A very important graph.">';
+      tr.innerHTML = '<img style="max-height: ' + height + '; width: auto" src="' + data[key] + '" alt="A very important graph.">';
       } else {
-      tr.innerHTML = key + " = " + data[key];
+      tr.innerHTML = key + " = " + data[key].replace(',',', ');
       }
       
       maincontainer.appendChild(tr);
