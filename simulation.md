@@ -76,7 +76,7 @@ var height = window.innerHeight
       if (key.includes("dataurl")) {
       tr.innerHTML = '<img style="max-height: ' + height + '; width: auto" src="' + data[key] + '" alt="A very important graph.">';
       } else {
-      value = data[key].replace(',',', ');
+      value = Text(data[key]).replace(',',', ');
       alert(value);
       tr.innerHTML = key + " = " + data[key];
       }
