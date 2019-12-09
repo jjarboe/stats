@@ -69,6 +69,11 @@ var height = window.innerHeight
   .then(data => {
 
     var maincontainer = document.getElementById("right")
+    
+    while (maincontainer.firstChild) {
+      maincontainer.removeChild(element.firstChild);
+    }
+    
     for(var key in data){
       var tr = document.createElement("tr");
       tr.setAttribute('style', 'width: ' + (width-(width/6))/2 + 'px; word-break: normal;')
