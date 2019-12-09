@@ -71,7 +71,7 @@ var height = window.innerHeight
     var maincontainer = document.getElementById("right")
     for(var key in data){
       var tr = document.createElement("tr");
-      tr.setAttribute('style', 'width: ' + (width-(width/6))/2 + 'px; word-break: break-all;')
+      tr.setAttribute('style', 'width: ' + (width-(width/6))/2 + 'px; word-break: normal;')
       
       if (key.includes("dataurl")) {
       tr.innerHTML = '<img style="max-height: ' + height + '; width: auto" src="' + data[key] + '" alt="A very important graph.">';
