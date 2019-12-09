@@ -77,8 +77,7 @@ var height = window.innerHeight
       tr.innerHTML = '<img style="max-height: ' + height + '; width: auto" src="' + data[key] + '" alt="A very important graph.">';
       } else {
       value = String(data[key]).replace(/,/g,', ');
-      alert(value);
-      tr.innerHTML = key + " = " + data[key];
+      tr.innerHTML = key + " = " + value;
       }
       
       maincontainer.appendChild(tr);
