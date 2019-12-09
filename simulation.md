@@ -13,24 +13,24 @@ permalink: /simulation/
       <table border="0">
       <tbody>
         <tr>
-          <td nowrap="nowrap">p</td>
-          <td><input value="" id="p" name="mean"></td>
+          <td nowrap="nowrap">mean:</td>
+          <td><input value="" name="p"></td>
         </tr>
         <tr>
-          <td nowrap="nowrap">n</td>
-          <td><input value="" name="number of trials" id="n"></td>
+          <td nowrap="nowrap">number of trials:</td>
+          <td><input value="" name="n"></td>
         </tr>
         <tr>
-          <td nowrap="nowrap">b</td>
-          <td><input value="" name="size of bins" id="b"></td>
+          <td nowrap="nowrap">size of bins:</td>
+          <td><input value="" name="b"></td>
         </tr>
         <tr>
-          <td nowrap="nowrap">t</td>
-          <td><input value="" name="size of trials" id="t"></td>
+          <td nowrap="nowrap">size of trials:</td>
+          <td><input value="" name="t"></td>
         </tr>
         <tr>
-          <td nowrap="nowrap">s</td>
-          <td><input value="" name="seed" id="s"></td>
+          <td nowrap="nowrap">seed:</td>
+          <td><input value="" name="s"></td>
         </tr>
       </tbody>
       </table>
@@ -76,7 +76,8 @@ var height = window.innerHeight
       if (key.includes("dataurl")) {
       tr.innerHTML = '<img style="max-height: ' + height + '; width: auto" src="' + data[key] + '" alt="A very important graph.">';
       } else {
-      tr.innerHTML = key + " = " + data[key].replace(',',', ');
+      value = data[key].replace(',',', ');
+      tr.innerHTML = key + " = " + value;
       }
       
       maincontainer.appendChild(tr);
