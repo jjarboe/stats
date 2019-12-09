@@ -68,7 +68,7 @@ permalink: /simulation/
       
       if (key.includes("dataurl")) {
       alert(data[key])
-      alert("<img src=${data[key]} alt='image'>")
+      alert("<img src=" + data[key] + "alt='image'>")
       //tr.innerHTML = "<img src='{}' alt='image'>".format(data[key]);
       } else {
       tr.innerHTML = key + " = " + data[key];
