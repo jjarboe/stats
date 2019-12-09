@@ -7,7 +7,37 @@ permalink: /simulation/
 <table>
   <tbody>
     <td>
-      
+      <form id="form" action="http://localhost:8000/graphs/" method="get">
+      <input type="hidden" name="present" value="1">
+
+      <table border="0">
+      <tbody>
+        <tr>
+          <td nowrap="nowrap">p</td>
+          <td><input value="" id="mean" name="p"></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap">n</td>
+          <td><input value="" id="number of trials" name="n"></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap">b</td>
+          <td><input value="" id="size of bins" name="b"></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap">t</td>
+          <td><input value="" id="size of trials" name="t"></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap">s</td>
+          <td><input value="" name="s"></td>
+        </tr>
+      </tbody>
+      </table>
+
+      <input type="submit" value="Start Simulation" >
+
+      </form>
     </td>
     <td id="right">
     
@@ -15,38 +45,6 @@ permalink: /simulation/
   </tbody>
 </table>
 
-
-<form id="form" action="http://localhost:8000/graphs/" method="get">
-<input type="hidden" name="present" value="1">
-  
-<table border="0">
-<tbody>
-  <tr>
-    <td nowrap="nowrap">p</td>
-    <td><input value="" id="mean" name="p"></td>
-  </tr>
-  <tr>
-    <td nowrap="nowrap">n</td>
-    <td><input value="" id="number of trials" name="n"></td>
-  </tr>
-  <tr>
-    <td nowrap="nowrap">b</td>
-    <td><input value="" id="size of bins" name="b"></td>
-  </tr>
-  <tr>
-    <td nowrap="nowrap">t</td>
-    <td><input value="" id="size of trials" name="t"></td>
-  </tr>
-  <tr>
-    <td nowrap="nowrap">s</td>
-    <td><input value="" name="s"></td>
-  </tr>
-</tbody>
-</table>
-
-<input type="submit" value="Start Simulation" >
-
-</form>
 
 <script>
   var f = document.getElementById("form");
@@ -67,7 +65,7 @@ permalink: /simulation/
       tr.setAttribute('style', 'width: 640px; word-break: break-all;')
       
       if (key.includes("dataurl")) {
-      tr.innerHTML = '<img style='height: 100%; width: 100%; object-fit: contain' src="' + data[key] + '" alt="A very important graph.">';
+      tr.innerHTML = '<img style='height: auto' src="' + data[key] + '" alt="A very important graph.">';
       } else {
       tr.innerHTML = key + " = " + data[key];
       }
