@@ -70,8 +70,10 @@ var height = window.innerHeight
 
     var maincontainer = document.getElementById("right")
     
-    while (maincontainer.firstChild) {
-      maincontainer.removeChild(element.firstChild);
+    if (maincontainer.firstChild) {
+      while (maincontainer.firstChild) {
+        maincontainer.removeChild(element.firstChild);
+      }
     }
     
     for(var key in data){
