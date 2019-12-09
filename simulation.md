@@ -65,7 +65,7 @@ permalink: /simulation/
       tr.setAttribute('style', 'width: 640px; word-break: break-all;')
       
       if (key.includes("dataurl")) {
-      tr.innerHTML = '<img style='height: auto' src="' + data[key] + '" alt="A very important graph.">';
+      tr.innerHTML = '<img style="height: auto" src="' + data[key] + '" alt="A very important graph.">';
       } else {
       tr.innerHTML = key + " = " + data[key];
       }
