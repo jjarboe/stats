@@ -7,7 +7,7 @@ permalink: /simulation/
 <table>
   <tbody>
     <td valign="top">
-      <form id="form" action="http://localhost:8000/graphs/" method="get">
+      <form id="form" action="https://blooming-reaches-62688.herokuapp.com/graphs/" method="get">
       <input type="hidden" name="present" value="1">
 
       <table border="0">
