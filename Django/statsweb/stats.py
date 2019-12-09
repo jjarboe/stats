@@ -34,11 +34,11 @@ Params: None
 Output: c, values'''
 def initialize():
     #Probability
-    p = .5
+    p = 5.0
     #Number of trials
     n = 1000
     #Size of bins in percent integer
-    b = 5
+    b = 0.5
     #Size of trials
     t = 50
     #Create a list with core values
@@ -54,7 +54,7 @@ Output: list avg
 def sample(p, n, t):
     avg = []
     for i in range(n):
-        list = np.random.choice(2,t, p=[(1-p),p])
+        list = np.random.choice(2,t, p=[(1-(p/10.0)),(p/10.0)])
         avg.append(sum(list)*10/t)
     return avg
 
@@ -65,6 +65,8 @@ Params: avg, b
 Output: histogram, dotplot
 '''
 def qualgraph(avg, b):
+    b = b*10
+
     '''histogram'''
     bx = plt.figure()
     bx = sns.distplot(pd.Series(avg,name="Self-Rating"))

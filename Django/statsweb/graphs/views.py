@@ -14,23 +14,34 @@ Params: request
 Output: Values for p,n,b,t,s
 '''
 def index(request):
+    if request.GET.get("present"):
+        vars = request.GET
+        json = False
+    else:
+        vars = request.POST
+        json = True
+        
     #initialize values
-    try: p = request.GET['p']
-    except: p = 0.5
+    p = vars.get('p')
+    try: p = float(p)
+    except: p = 5.0
 
-    try: n = request.GET['n']
+    n = vars.get('n')
+    try: n = int(n)
     except: n = 1000
 
-    try: b = request.GET['b']
-    except: b = 5
+    b = vars.get('b')
+    try: b = float(b)
+    except: b = 0.5
 
-    try: t = request.GET['t']
+    t = vars.get('t')
+    try: t = int(t)
     except: t = 50
 
-    try: np.random.seed(int(request.GET['s']))
+    try: np.random.seed(int(vars['s']))
     except: pass
 
-    values = [float(p),int(n),int(b),int(t)]
+    values = [float(p),int(n),float(b),int(t)]
 
     #Take sample
     avg = sample(values[0],values[1],values[3])
@@ -51,16 +62,16 @@ def index(request):
 
     dot = (b'data:image/png;base64,'+b64encode(fdot.getvalue())).decode('utf-8')
     
-    if request.GET.get('json'):
+    if json:
         resp = {
+            'hist_dataurl': hist,
+            'dot_dataurl': dot,
             'p': p,
             'n': n,
             'b': b,
             't': t,
             'values': values,
-            'averages': avg,
-            'hist_dataurl': hist,
-            'dot_dataurl': dot
+            'averages': avg
         }
         return JsonResponse(resp)
     else:
