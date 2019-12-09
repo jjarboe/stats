@@ -6,7 +6,7 @@ permalink: /simulation/
 
 <table>
   <tbody>
-    <td>
+    <td valign="top">
       <form id="form" action="http://localhost:8000/graphs/" method="get">
       <input type="hidden" name="present" value="1">
 
@@ -62,7 +62,7 @@ permalink: /simulation/
     var maincontainer = document.getElementById("right")
     for(var key in data){
       var tr = document.createElement("tr");
-      tr.setAttribute('style', 'width: 640px; word-break: break-all;')
+      tr.setAttribute('style', 'width: 500px; word-break: break-all;')
       
       if (key.includes("dataurl")) {
       tr.innerHTML = '<img style="height: auto" src="' + data[key] + '" alt="A very important graph.">';
