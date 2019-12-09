@@ -60,15 +60,14 @@ permalink: /simulation/
     .then(response => response.json())
   )
   .then(data => {
-    //alert(data);
 
     var maincontainer = document.getElementById("right")
     for(var key in data){
       var tr = document.createElement("tr");
+      tr.setAttribute('style', 'width: 640px; word-break: break-all;')
       
       if (key.includes("dataurl")) {
-      //alert("<img src=" + data[key] + "alt='image'>")
-      tr.innerHTML = '<img src="' + data[key] + '" alt="A very important graph.">';
+      tr.innerHTML = '<img style='height: 100%; width: 100%; object-fit: contain' src="' + data[key] + '" alt="A very important graph.">';
       } else {
       tr.innerHTML = key + " = " + data[key];
       }
