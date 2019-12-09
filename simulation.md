@@ -60,16 +60,15 @@ permalink: /simulation/
     .then(response => response.json())
   )
   .then(data => {
-    alert(data);
+    //alert(data);
 
     var maincontainer = document.getElementById("right")
     for(var key in data){
       var tr = document.createElement("tr");
       
       if (key.includes("dataurl")) {
-      alert(data[key])
-      alert("<img src=" + data[key] + "alt='image'>")
-      //tr.innerHTML = "<img src='{}' alt='image'>".format(data[key]);
+      //alert("<img src=" + data[key] + "alt='image'>")
+      tr.innerHTML = "<img src=" + data[key] + "alt='image'>";
       } else {
       tr.innerHTML = key + " = " + data[key];
       }
