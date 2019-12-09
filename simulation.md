@@ -1,8 +1,8 @@
-<---
+<p hidden>
 layout: page
 title: "Simulation"
 permalink: /simulation/
---->
+</p>
 
 <table>
   <tbody>
@@ -67,7 +67,8 @@ permalink: /simulation/
       var tr = document.createElement("tr");
       
       if (key.includes("dataurl")) {
-      tr.innerHTML = "<img src='{}' alt='image'>".format(data[key]);
+      alert("<img src=data[key] alt='image'>
+      //tr.innerHTML = "<img src='{}' alt='image'>".format(data[key]);
       } else {
       tr.innerHTML = key + " = " + data[key];
       }
