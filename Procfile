@@ -1,2 +1,2 @@
 #web: gunicorn statsweb.wsgi --log-file -
-web: python manage.py runserver 0.0.0.0:5000
+web: python Django/statsweb/manage.py runserver 0.0.0.0:5000
