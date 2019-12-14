@@ -74,7 +74,7 @@ permalink: /simulation/
   var p = 0;
   
   p = fetch("https://api.mathjs.org/v4/?expr=erf(("+m+"-"+x+")%2F(sqrt(2)*"+s+"))")
-      .then(response => response)
+      .then(response => response.text())
       .then(data => {
         if(x < m){
           p = data;
