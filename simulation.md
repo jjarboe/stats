@@ -78,9 +78,9 @@ permalink: /simulation/
       .then(response => response.text())
       .then(data => {
         if(x < m){
-          p = data;
-        } else if(x >= m){
           p = 1-data;
+        } else{
+          p = data;
         }
   
         document.getElementById('prop').innerHTML = "Proportion of samples: " + p;
