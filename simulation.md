@@ -61,11 +61,11 @@ permalink: /simulation/
   </tbody>
 </table>
 
+<script src="https://cdnjs.com/libraries/mathjs"></script>
 <script>
-  const mathjs = require('mathjs')
 
   function cdfNormal (x, mean, standardDeviation) {
-    return (1 - mathjs.erf((mean - x ) / (Math.sqrt(2) * standardDeviation))) / 2
+    return (1 - math.erf((mean - x ) / (Math.sqrt(2) * standardDeviation))) / 2
   }
   
   document.getElementById("prop_btn").onclick(e => {
