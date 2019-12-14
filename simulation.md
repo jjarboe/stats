@@ -73,7 +73,8 @@ permalink: /simulation/
   var x = document.getElementById('x').value;
   var p = 0;
   
-  p = fetch("https://api.mathjs.org/v4/?expr=(1-erf(("+m+"-"+x+")%2F(sqrt(2)*"+s+")))%2F2")
+  var formula = "(1 - erf( (("+m+") - ("+x+")) / (sqrt(2) * ("+s+")) ) / 2)";
+  p = fetch("https://api.mathjs.org/v4/?expr="+encodeURIComponent(formula))
       .then(response => response.text())
       .then(data => {
         if(x < m){
