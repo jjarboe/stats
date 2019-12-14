@@ -61,7 +61,7 @@ permalink: /simulation/
   </tbody>
 </table>
 
-<script src="https://cdnjs.com/libraries/mathjs"></script>
+<script src="https://cdnjs.com/libraries/mathjs" type="text/javascript"></script>
 <script>
 
   function cdfNormal (x, mean, standardDeviation) {
