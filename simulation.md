@@ -73,7 +73,7 @@ permalink: /simulation/
   var x = document.getElementById('x').value;
   var p = 0;
   
-  var formula = "(1 - erf( (("+m+") - ("+x+")) / (sqrt(2) * ("+s+")) ) / 2)";
+  var formula = "(1 - erf( (("+m+") - ("+x+")) / (sqrt(2) * ("+s+")) ) / 2)".replace(/ /g, "");
   p = fetch("https://api.mathjs.org/v4/?expr="+encodeURIComponent(formula))
       .then(response => response.text())
       .then(data => {
