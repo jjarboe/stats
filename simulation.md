@@ -14,7 +14,7 @@ permalink: /simulation/
       <tbody>
         <tr>
           <td nowrap="nowrap">mean:</td>
-          <td><input value="" name="p"></td>
+          <td><input value="" name="m"></td>
         </tr>
         <tr>
           <td nowrap="nowrap">number of trials:</td>
@@ -38,6 +38,22 @@ permalink: /simulation/
       <input type="submit" value="Start Simulation" >
 
       </form>
+      <form id="calc">
+          <input type="hidden" id="mean" value="0">
+          <input type="hidden" id="stdev" value="0">
+      <table>
+      <tbody>
+        <tr>
+          <input id = "x" value="" name="Probability of &mu; as extreme as:">
+        </tr>
+        <tr id="prop">
+        </tr>
+      </tbody>
+      </table>
+      
+      <input type="submit" value="Calculate">
+      
+      </form>
     </td>
     <td id="right">
     
@@ -45,7 +61,32 @@ permalink: /simulation/
   </tbody>
 </table>
 
+<script>
+  const mathjs = require('mathjs')
 
+  function cdfNormal (x, mean, standardDeviation) {
+    return (1 - mathjs.erf((mean - x ) / (Math.sqrt(2) * standardDeviation))) / 2
+  }
+  
+  var c = document.getElementById("calc");
+  function SubmitForm(event)
+  
+  
+  var m = document.getElementById('mean').value;
+  var s = document.getElementById('stdev').value;
+  var x = document.getElementById('x').value;
+  var p = 0;
+  
+  if(x < m){
+    p = cdfNormal(x,m,s);
+  } else if(x >= m){
+    p = 1-(cdfNormal(x,m,s));
+  }
+  
+  var tar = document.getElementById('prop');
+  tar.innerHTML = "Proportion of samples: " + p';
+  
+</script>
 <script>
   
   var width = window.innerWidth
@@ -75,7 +116,13 @@ var height = window.innerHeight
       tr.setAttribute('style', 'width: ' + (width-(width/6))/2 + 'px; word-break: normal;')
       
       if (key.includes("dataurl")) {
-      tr.innerHTML = '<img style="max-height: ' + height + '; width: auto" src="' + data[key] + '" alt="A very important graph.">';
+      tr.innerHTML = '<img style="height: ' + height/2 + '; width: auto" src="' + data[key] + '" alt="A very important graph.">';
+      } else if(key == "mean"){
+      tr.innerHTML = key + " = " + value;
+      document.getElementById('mean').value = value;
+      } else if(key == "StDev"){
+      tr.innerHTML = key + " = " + value;
+      document.getElementById('stdev').value = value;
       } else {
       value = String(data[key]).replace(/,/g,', ');
       tr.innerHTML = key + " = " + value;
