@@ -50,6 +50,7 @@ def index(request):
     hist, dot = qualgraph(avg, values[2])
     
     #Create statistics
+    m, s = stats(values[1], avg)
    
     #Output graphs
     fhist = io.BytesIO()
@@ -66,11 +67,12 @@ def index(request):
         resp = {
             'hist_dataurl': hist,
             'dot_dataurl': dot,
-            'p': p,
+            'm': p,
             'n': n,
             'b': b,
             't': t,
-            'values': values,
+            'mean': m,
+            'StDev': s,
             'averages': avg
         }
         return JsonResponse(resp)

@@ -26,12 +26,14 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import seaborn as sns
 import pandas as pd
+import math
 
 
 '''
 Description: Sets default values for variables
 Params: None
-Output: c, values'''
+Output: list values containing the mean, number of trials, size of bins, and size of trials
+'''
 def initialize():
     #Probability
     p = 5.0
@@ -48,7 +50,7 @@ def initialize():
 
 '''
 Description: Creates a random sample
-Params: n, t, p
+Params: p, n, t
 Output: list avg
 '''
 def sample(p, n, t):
@@ -97,11 +99,38 @@ def qualgraph(avg, b):
     
     #save the figure to dot.png
     #p.savefig("dot")
-    
     return bx, p
+ 
+    
+'''
+Description: Calculates statistical data
+Params: values, avg
+Output: mean, standard deviance, if & why normally distributed
+'''
+def stats(n, avg):
+    #mean
+    list = []
+    m = sum(avg)/n
+    
+    #StDev
+    for i in range(len(avg)):
+        list.append(avg[i] - m)
+    #print(avg)
+    s = math.sqrt(sum(avg)/(n-1))
+    
+    return m,s
 
+
+'''
+Program to run when file is not imported
+Same as web version
+'''
 if __name__ == '__main__':
-    values = [.5, 1000, 5, 50]
+    
+    # Initialize values
+    values = initialize()
+    
+    #Command line arguments
     if(len(sys.argv)):
         for i in range(1,len(sys.argv)):
             #Probability
@@ -126,3 +155,18 @@ if __name__ == '__main__':
             #error if not any of these
             else:
                 raise ValueError(sys.argv[i],' is not a valid argument.')
+
+    #Take sample
+    avg = sample(values[0],values[1],values[3])
+    #print(avg)
+
+    #Create graphs
+    hist, dot = qualgraph(avg, values[2])
+    #print(hist, dot)
+    
+    #Create statistics
+    m, s = stats(values[1], avg)
+    #print("mean: " + m + "\nStandard Dev: " + s)
+    
+    #Output important shit
+    print("{}\n{}\n\nMean: {}\nStandard Dev: {}".format(values,avg,m,s))
