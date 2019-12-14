@@ -61,7 +61,6 @@ permalink: /simulation/
   </tbody>
 </table>
 
-<script src="https://cdnjs.com/libraries/mathjs" type="text/javascript"></script>
 <script>
 
   function cdfNormal (x, mean, standardDeviation) {
@@ -74,14 +73,17 @@ permalink: /simulation/
   var x = document.getElementById('x').value;
   var p = 0;
   
-  if(x < m){
-    p = cdfNormal(x,m,s);
-  } else if(x >= m){
-    p = 1-(cdfNormal(x,m,s));
-  }
+  p = fetch("https://api.mathjs.org/v4/?expr=erf(("+m+"-"+x+")%2F(sqrt(2)*"+s+"))")
+      .then(response => response)
+      .then(data => {
+        if(x < m){
+          p = data;
+        } else if(x >= m){
+          p = 1-data;
+        }
   
-  var tar = document.getElementById('prop');
-  tar.innerHTML = "Proportion of samples: " + p;
+        document.getElementById('prop').innerHTML = "Proportion of samples: " + p;
+      });
   });
   
 </script>
