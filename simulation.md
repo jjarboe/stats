@@ -44,14 +44,14 @@ permalink: /simulation/
       <table>
       <tbody>
         <tr>
-          <input id = "x" value="" name="Probability of &mu; as extreme as:">
+          <input id = "x" value="" name="As extreme as:">
         </tr>
         <tr id="prop">
         </tr>
       </tbody>
       </table>
       
-      <input type="submit" value="Calculate">
+      <input id="prop_btn" type="button" value="Calculate Proportion">
       
       </form>
     </td>
@@ -68,10 +68,7 @@ permalink: /simulation/
     return (1 - mathjs.erf((mean - x ) / (Math.sqrt(2) * standardDeviation))) / 2
   }
   
-  var c = document.getElementById("calc");
-  function SubmitForm(event)
-  
-  
+  document.getElementById("prop_btn").onclick(e => {
   var m = document.getElementById('mean').value;
   var s = document.getElementById('stdev').value;
   var x = document.getElementById('x').value;
@@ -84,7 +81,8 @@ permalink: /simulation/
   }
   
   var tar = document.getElementById('prop');
-  tar.innerHTML = "Proportion of samples: " + p';
+  tar.innerHTML = "Proportion of samples: " + p;
+  });
   
 </script>
 <script>
@@ -99,6 +97,7 @@ var height = window.innerHeight
   
   var f = document.getElementById("form");
   f.onsubmit=SubmitForm;
+  
   function SubmitForm(event){
   var url = f.action;
   var data = (fetch(url, {
@@ -118,10 +117,10 @@ var height = window.innerHeight
       if (key.includes("dataurl")) {
       tr.innerHTML = '<img style="height: ' + height/2 + '; width: auto" src="' + data[key] + '" alt="A very important graph.">';
       } else if(key == "mean"){
-      tr.innerHTML = key + " = " + value;
+      tr.innerHTML = key + " = " + data[key];
       document.getElementById('mean').value = value;
       } else if(key == "StDev"){
-      tr.innerHTML = key + " = " + value;
+      tr.innerHTML = key + " = " + data[key];
       document.getElementById('stdev').value = value;
       } else {
       value = String(data[key]).replace(/,/g,', ');
