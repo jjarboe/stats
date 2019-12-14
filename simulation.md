@@ -67,7 +67,7 @@ permalink: /simulation/
     return (1 - math.erf((mean - x ) / (Math.sqrt(2) * standardDeviation))) / 2
   }
   
-  document.getElementById("prop_btn").onclick(e => {
+  document.getElementById("prop_btn").onclick = (e => {
   var m = document.getElementById('mean').value;
   var s = document.getElementById('stdev').value;
   var x = document.getElementById('x').value;
