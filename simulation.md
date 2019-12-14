@@ -121,10 +121,10 @@ var height = window.innerHeight
       tr.innerHTML = '<img style="height: ' + height/2 + '; width: auto" src="' + data[key] + '" alt="A very important graph.">';
       } else if(key == "mean"){
       tr.innerHTML = key + " = " + data[key];
-      document.getElementById('mean').value = value;
+      document.getElementById('mean').value = data[key];
       } else if(key == "StDev"){
       tr.innerHTML = key + " = " + data[key];
-      document.getElementById('stdev').value = value;
+      document.getElementById('stdev').value = data[key];
       } else {
       value = String(data[key]).replace(/,/g,', ');
       tr.innerHTML = key + " = " + value;
