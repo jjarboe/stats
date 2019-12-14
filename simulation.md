@@ -63,9 +63,9 @@ permalink: /simulation/
 
 <script>
 
-  function cdfNormal (x, mean, standardDeviation) {
-    return (1 - math.erf((mean - x ) / (Math.sqrt(2) * standardDeviation))) / 2
-  }
+  //function cdfNormal (x, mean, standardDeviation) {
+  //  return (1 - math.erf((mean - x ) / (Math.sqrt(2) * standardDeviation))) / 2
+  //}
   
   document.getElementById("prop_btn").onclick = (e => {
   var m = document.getElementById('mean').value;
@@ -73,7 +73,7 @@ permalink: /simulation/
   var x = document.getElementById('x').value;
   var p = 0;
   
-  p = fetch("https://api.mathjs.org/v4/?expr=erf(("+m+"-"+x+")%2F(sqrt(2)*"+s+"))")
+  p = fetch("https://api.mathjs.org/v4/?expr=(1-erf(("+m+"-"+x+")%2F(sqrt(2)*"+s+")))%2F2")
       .then(response => response.text())
       .then(data => {
         if(x < m){
