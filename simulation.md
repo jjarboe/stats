@@ -38,16 +38,23 @@ permalink: /simulation/
       <input type="submit" value="Start Simulation" >
 
       </form>
-      <FORM>
+      <form>
+				<INPUT TYPE="hidden" NAME="mean" Value="0">
+        <INPUT TYPE="hidden" NAME="stdev" Value="1">
+      <table>
+      <tbody>
+      	<tr>
+					<td nowrap="nowrap">x-value:</td>
+					<td><INPUT TYPE="text" NAME="argument" Value="2" SIZE=15></td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap">Probability:</td>
+					<td><INPUT TYPE="text" NAME="result" SIZE=15></td>
+				</tr>
 
-	x-value: <INPUT TYPE="text" NAME="argument" Value="2" SIZE=15>
-              <INPUT TYPE="hidden" NAME="mean" Value="0">
-              <INPUT TYPE="hidden" NAME="stdev" Value="1">
-
-	Probability: <INPUT TYPE="text" NAME="result" SIZE=15>
-           <INPUT TYPE="button" VALUE="Calculate" ONCLICK="compute(this.form)">
+			<INPUT TYPE="button" VALUE="Calculate" ONCLICK="compute(this.form)">
 	
-	</FORM>
+			</form>
     </td>
     <td id="right">
     
