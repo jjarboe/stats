@@ -42,11 +42,17 @@ permalink: /simulation/
 <p>Calculate the probability of an data point being more extreme than a certain x-value.</p>
 
 <form action="" id="form2">
-		<input type="hidden" id="mean" name="mean">
-		<input type="hidden" id="stdev" name="stdev">
-       
+	
 		<table>
 		<tbody>
+			<tr>
+				<td nowrap="nowrap">mean:</td>
+				<td><input type="text" id="mean" name="mean" size="15" disabled></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap">stdev:</td>
+				<td><input type="text" id="stdev" name="stdev" size="15" disabled></td>
+			</tr>
 			<tr>
 				<td nowrap="nowrap">x-value:</td>
 				<td><input type="text" name="argument" size="15"></td>
