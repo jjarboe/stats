@@ -39,8 +39,10 @@ permalink: /simulation/
 
       </form>
       <FORM>
-	<pre>
+	
+	<tr>
 	Calculates the probability of an data point being more extreme than a certain x-value.
+	</tr>
 
 	x-value: <INPUT TYPE="text" NAME="argument" Value="2" SIZE=15>
               <INPUT TYPE="hidden" NAME="mean" Value="0">
@@ -48,7 +50,7 @@ permalink: /simulation/
 
 	Probability: <INPUT TYPE="text" NAME="result" SIZE=15>
            <INPUT TYPE="button" VALUE="Calculate" ONCLICK="compute(this.form)">
-	</pre>
+	
 	</FORM>
     </td>
     <td id="right">
