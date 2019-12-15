@@ -39,17 +39,17 @@ permalink: /simulation/
 
       </form>
       <FORM>
-<pre>
-Calculates the probability of an data point being more extreme than a certain x-value
+	<pre>
+Calculates the probability of an data point being more extreme than a certain x-value.
 
-x-value: <INPUT TYPE="text" NAME="argument" Value="2" SIZE=15>
+	x-value: <INPUT TYPE="text" NAME="argument" Value="2" SIZE=15>
               <INPUT TYPE="hidden" NAME="mean" Value="0">
               <INPUT TYPE="hidden" NAME="stdev" Value="1">
 
-Probability: <INPUT TYPE="text" NAME="result" SIZE=15>
+	Probability: <INPUT TYPE="text" NAME="result" SIZE=15>
            <INPUT TYPE="button" VALUE="Calculate" ONCLICK="compute(this.form)">
-</pre>
-</FORM>
+	</pre>
+	</FORM>
     </td>
     <td id="right">
     
