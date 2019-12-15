@@ -38,22 +38,18 @@ permalink: /simulation/
       <input type="submit" value="Start Simulation" >
 
       </form>
-      <form id="calc">
-          <input type="hidden" id="mean" value="0">
-          <input type="hidden" id="stdev" value="0">
-      <table>
-      <tbody>
-        <tr>
-          <input id = "x" value="" name="As extreme as:">
-        </tr>
-        <tr id="prop">
-        </tr>
-      </tbody>
-      </table>
-      
-      <input id="prop_btn" type="button" value="Calculate Proportion">
-      
-      </form>
+      <FORM>
+<pre>
+Calculates the probability of an data point being more extreme than a certain x-value
+
+x-value: <INPUT TYPE="text" NAME="argument" Value="2" SIZE=15>
+              <INPUT TYPE="hidden" NAME="mean" Value="0">
+              <INPUT TYPE="hidden" NAME="stdev" Value="1">
+
+Probability: <INPUT TYPE="text" NAME="result" SIZE=15>
+           <INPUT TYPE="button" VALUE="Calculate" ONCLICK="compute(this.form)">
+</pre>
+</FORM>
     </td>
     <td id="right">
     
@@ -61,6 +57,46 @@ permalink: /simulation/
   </tbody>
 </table>
 
+<SCRIPT LANGUAGE="JavaScript">
+<!-- hide this script tag's contents from old browsers
+
+function normalcdf(X){   //HASTINGS.  MAX ERROR = .000001
+	var T=1/(1+.2316419*Math.abs(X));
+	var D=.3989423*Math.exp(-X*X/2);
+	var Prob=D*T*(.3193815+T*(-.3565638+T*(1.781478+T*(-1.821256+T*1.330274))));
+	if (X>0) {
+		Prob=1-Prob
+	}
+	return Prob
+}   
+
+function compute(form) {
+    Z=eval(form.argument.value)
+    M=eval(form.mean.value)
+    SD=eval(form.stdev.value)
+    with (Math) {
+		if (SD<0) {
+			alert("The standard deviation must be nonnegative.")
+		} else if (SD==0) {
+		    if (Z<M){
+		        Prob=0
+		    } else {
+			    Prob=1
+			}
+		} else {
+			if (Z<M) {
+      	Prob=normalcdf((Z-M)/SD);
+				Prob=round(100000*Prob)/100000;
+      } else {
+      	Prob=1-normalcdf((Z-M)/SD);
+        Prob=round(100000*Prob)/100000;
+      }
+		}
+	}
+    form.result.value = Prob;
+}
+// done hiding from old browsers -->
+</SCRIPT>
 <script>
 
   //function cdfNormal (x, mean, standardDeviation) {
