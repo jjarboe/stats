@@ -106,33 +106,6 @@ function compute(form) {
 // done hiding from old browsers -->
 </SCRIPT>
 <script>
-
-  //function cdfNormal (x, mean, standardDeviation) {
-  //  return (1 - math.erf((mean - x ) / (Math.sqrt(2) * standardDeviation))) / 2
-  //}
-  
-  document.getElementById("prop_btn").onclick = (e => {
-  var m = document.getElementById('mean').value;
-  var s = document.getElementById('stdev').value;
-  var x = document.getElementById('x').value;
-  var p = 0;
-  
-  var formula = "(1 - erf( (("+m+") - ("+x+")) / (sqrt(2) * ("+s+")) ) / 2)".replace(/ /g, "");
-  p = fetch("https://api.mathjs.org/v4/?expr="+encodeURIComponent(formula))
-      .then(response => response.text())
-      .then(data => {
-        if(x < m){
-          p = data;
-        } else{
-          p = 1-data;
-        }
-  
-        document.getElementById('prop').innerHTML = "Proportion of samples: " + p;
-      });
-  });
-  
-</script>
-<script>
   
   var width = window.innerWidth
 || document.documentElement.clientWidth
