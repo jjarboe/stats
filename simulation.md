@@ -35,7 +35,7 @@ permalink: /simulation/
       </tbody>
       </table>
 
-      <input type="submit" value="Start Simulation" >
+      <input id="submit" type="submit" value="Start Simulation" >
 
       </form>
 
@@ -58,7 +58,7 @@ permalink: /simulation/
 		</tbody>
 		</table>
 
-		<input type="button" value="Calculate" onclick="compute(this.form)">
+		<input id="calc" type="button" value="Calculate" onclick="compute(this.form)" disabled>
 
 	</form>
     </td>
@@ -122,6 +122,9 @@ var height = window.innerHeight
   f.onsubmit=SubmitForm;
   
   function SubmitForm(event){
+  
+  document.getElementById("submit").disabled = true;
+  
   var url = f.action;
   var data = (fetch(url, {
           method:"POST", 
@@ -156,6 +159,7 @@ var height = window.innerHeight
   )
   .catch(error => alert("ERROR", error));
   
+  document.getElementById("calc").disabled = false;
   
   event.preventDefault();
   }
