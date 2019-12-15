@@ -40,7 +40,7 @@ permalink: /simulation/
       </form>
       <FORM>
 	<pre>
-Calculates the probability of an data point being more extreme than a certain x-value.
+	Calculates the probability of an data point being more extreme than a certain x-value.
 
 	x-value: <INPUT TYPE="text" NAME="argument" Value="2" SIZE=15>
               <INPUT TYPE="hidden" NAME="mean" Value="0">
