@@ -38,15 +38,15 @@ permalink: /simulation/
       <input type="submit" value="Start Simulation" >
 
       </form>
-      <form action="" id="form2">
+
+<p>Calculate the probability of an data point being more extreme than a certain x-value.</p>
+
+<form action="" id="form2">
 		<input type="hidden" id="mean" name="mean" Value="0">
 		<input type="hidden" id="stdev" name="stdev" Value="1">
        
 		<table>
 		<tbody>
-			<tr>
-				<td nowrap="nowrap">Calculate the probability of an data point being more extreme than a certain x-value.</td>
-			</tr>
 			<tr>
 				<td nowrap="nowrap">x-value:</td>
 				<td><input type="text" name="argument" Value="2" size="15"></td>
